@@ -87,7 +87,7 @@ rect(200, 200, 15, rectangleHeight); // right tooth
 
 
 
-// Green frog
+// Green frog - stabilizing the animation by using variables
 var x = 200;
 var y = 250;
 
@@ -108,5 +108,187 @@ rect(x + 45, y - 50, 10, 10); //Right eyeball
 
 fill(0, 0, 0); //Mouth
 ellipse(x, y , 110, 60);
+
+
+
+//Animated Sun - by using a function to increment
+noStroke();
+
+// the starting size for the sun
+var sunSize = 30; 
+
+draw = function() {
+    // the beautiful blue sky
+    background(82, 222, 240);
+    
+    // The sun, a little circle on the       horizon
+    fill(255, 204, 0);
+    ellipse(200, 298, sunSize, sunSize);
+
+    // The land, blocking half of the sun
+    fill(76, 168, 67);
+    rect(0, 300, 400, 100);
+    
+    sunSize = sunSize + 1;
+};
+
+
+// Running clouds and Increasing sun animation
+noStroke();
+var leftX = 130;
+var rightX = 270;
+var sunRadius = 100;
+
+draw = function() {
+    background(184, 236, 255);
+    
+    fill(255, 170, 0);
+    ellipse(200, 100, sunRadius, sunRadius);
+    
+    // clouds 
+    fill(255, 255, 255);
+    // left cloud
+    ellipse(leftX, 150, 126, 97);
+    ellipse(leftX+62, 150, 70, 60);
+    ellipse(leftX-62, 150, 70, 60);
+    
+    // right cloud
+    ellipse(rightX, 100, 126, 97);
+    ellipse(rightX+62, 100, 70, 60);
+    ellipse(rightX-62, 100, 70, 60);
+    
+    leftX -= 1;
+    rightX += 1;
+    sunRadius += 2;
+}; 
+
+
+
+
+
+// moving stars and house 
+var xPos = 70;
+var yPos = 100;
+
+var xP = 300;
+var yP = 100;
+var xTri = 187;
+
+draw = function() {
+    background(29, 40, 115);
+    fill(23, 8, 2);
+    
+    //Stars
+    fill(255, 255, 255); //Star 1
+    ellipse(xPos, yPos + 230, 60, 10);
+    ellipse(xPos, yPos + 230, 10, 60);
+    ellipse(xPos, yPos + 230, 10, 10);
+    
+    //Star 2
+    fill(255, 255, 255); //Star 2
+    ellipse(xP, yP, 60, 10);
+    ellipse(xP, yP, 10, 60);
+    ellipse(xP, yP, 10, 10);
+    
+    triangle(xTri, 60, 90, 150, 290, 150); //Roof
+    rect(90, 150, 200, 140); //Big rect/House body
+    fill(220, 224, 206);
+    rect(100, 170, 40, 40); //Left Window
+    rect(235, 170, 40, 40); //Right Window
+    rect(160, 215, 60, 70); //Door
+    
+    stroke(0); // Door knob
+    point(170, 250);
+    
+    xPos += 1;
+    yPos -= 1;
+    
+    xP -= 1;
+    yP += 2;
+};
+
+//Moving stars and Skyscrapper
+
+var xPos = 40;
+var yPos = 360;
+
+var xP = 330;
+var yP = 40;
+
+var recX = 88;
+var recY = 23;
+
+draw = function() {
+    background(29, 40, 115);
+    fill(255, 242, 0);
+    
+    //Skyscrapper
+    fill(102, 99, 99);
+    rect(recX , recY, 200, 350); //Body
+    //floors
+    fill(245, 235, 235);
+    rect(recX + 10, recY + 20, 30, 20); //floor1 W1
+    rect(recX + 85, recY + 20, 30, 20); //W2
+    rect(recX + 160, recY + 20, 30, 20); //W3
+    
+    rect(recX + 10, recY + 70, 30, 20); //floor2 W1
+    rect(recX + 85, recY + 70, 30, 20); //W2
+    rect(recX + 160, recY + 70, 30, 20); //W3
+    
+    rect(recX + 10, recY + 120, 30, 20); //floor3 W1
+    rect(recX + 85, recY + 120, 30, 20); //W2
+    rect(recX + 160, recY + 120, 30, 20); //W3
+    
+    rect(recX + 10, recY + 170, 30, 20); //floor4 W1
+    rect(recX + 85, recY + 170, 30, 20); //W2
+    rect(recX + 160, recY + 170, 30, 20); //W3
+    
+      
+    rect(recX + 10, recY + 220, 30, 20); //floor5 W1
+    rect(recX + 85, recY + 220, 30, 20); //W2
+    rect(recX + 160, recY + 220, 30, 20); //W3
+    
+      
+    rect(recX + 10, recY + 270, 30, 20); //floor4 W1
+    rect(recX + 85, recY + 270, 30, 20); //W2
+    rect(recX + 160, recY + 270, 30, 20); //W3
+    
+      
+    rect(recX + 10, recY + 320, 30, 20); //floor4 W1
+    rect(recX + 85, recY + 320, 30, 20); //W2
+    rect(recX + 160, recY + 320, 30, 20); //W3
+    
+    strokeWeight(2);
+    line(recX + 10, recY +47, 280, recY +47); //Floor1 Line
+    line(recX + 10, recY +100, 280, recY +100); //Floor2 Line
+    line(recX + 10, recY +153, 280, recY +153); //Floor3 Line
+    line(recX + 10, recY +206, 280, recY +206); //Floor4 Line
+    line(recX + 10, recY +259, 280, recY +259); //Floor5 Line
+    line(recX + 10, recY +312, 280, recY +312); //Floor6 Line
+    
+    //Star1
+    fill(255, 255, 255);
+    ellipse(xPos, yPos, 40, 10);
+    ellipse(xPos, yPos, 10, 40);
+    ellipse(xPos, yPos, 10, 10);
+    //Star2
+    ellipse(xP, yP, 40, 10);
+    ellipse(xP, yP, 10, 40);
+    ellipse(xP, yP, 10, 10);
+    
+    
+    xPos += 1;
+    yPos -= 1;
+
+    xP -= 1 ;
+     yP += 1 ;
+    recY += 1 ;
+    
+};
+
+
+
+
+
 
 
